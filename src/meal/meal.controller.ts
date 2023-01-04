@@ -19,4 +19,10 @@ export class MealController {
     const mealData = this.mealService.findMeal();
     return { mealData };
   }
+
+  @Get(':id')
+  getSingleMeal(@Body('id') mealId: string): any {
+    const mealData = this.mealService.findSingleMeal(mealId);
+    return { mealData };
+  }
 }

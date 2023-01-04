@@ -1,6 +1,6 @@
 export class Meal {
   constructor(
-    public id: number,
+    public id: string,
     public name: string,
     public description: string,
     public price: string,
