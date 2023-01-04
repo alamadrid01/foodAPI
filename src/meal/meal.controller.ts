@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { MealService } from './meal.service';
 
 @Controller('meal')
@@ -16,12 +16,11 @@ export class MealController {
 
   @Get()
   getAllMeal(): any {
-    const mealData = this.mealService.findMeal();
-    return { mealData };
+    return this.mealService.findMeal();
   }
 
   @Get(':id')
-  getSingleMeal(@Body('id') mealId: string): any {
+  getSingleMeal(@Param('id') mealId: string): any {
     const mealData = this.mealService.findSingleMeal(mealId);
     return { mealData };
   }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Meal } from './meal.model';
 @Injectable()
 export class MealService {
@@ -25,6 +25,9 @@ export class MealService {
   // Create a function to return a single meal in the meal data
   findSingleMeal(mealId: string): any {
     const meal = this.meals.find((meal) => meal.id === mealId);
+    if (!meal) {
+      throw new NotFoundException('Could not find meal.');
+    }
     return { ...meal };
   }
 }
