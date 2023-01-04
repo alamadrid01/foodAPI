@@ -16,6 +16,7 @@ export class MealController {
 
   @Get()
   getAllMeal(): any {
-    return 'Hello';
+    const mealData = this.mealService.findMeal();
+    return { mealData };
   }
 }

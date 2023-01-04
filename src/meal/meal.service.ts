@@ -18,7 +18,7 @@ export class MealService {
   }
 
   // Create a function to return all the meals in the meal data
-  findMeal(): Meal[] {
-    return this.meals;
+  findMeal(): any {
+    return [...this.meals];
   }
 }
